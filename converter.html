@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Temperature Converter</h1>
+        <input id="inputTemp" type="number" placeholder="Enter temperature">
+        <select id="tempType">
+            <option value="c">Celsius</option>
+            <option value="f">Fahrenheit</option>
+            <option value="f">Kelvin</option>
+
+        </select>
+        <button onclick="convertTemp()">Convert</button>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function convertTemp() {
+            var temp = document.getElementById('inputTemp').value;
+            var type = document.getElementById('tempType').value;
+            var outputF, outputC, outputK;
+
+            if (type == 'c') {
+                outputF = (temp * 9/5) + 32;
+                outputK = temp + 273.15;
+            } else if (type == 'f') {
+                outputC = (temp - 32) * 5/9;
+                outputK = (temp + 459.67) * 5/9;
+            }
+
+            document.getElementById('output').innerHTML = 'Celsius: ' + outputC + ', Fahrenheit: ' + outputF + ', Kelvin: ' + outputK;
+            
+        }
+
+    </script>
+</body>
+</html>
+        <style>
+            body {
+                background-color: #f2f2f2;
+                color: #333;
+            }
+            #container {
+                background-color: #fff;
+                border-radius: 8px;
+                padding: 20px;
+                box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            }
+            h1 {
+                color: #ff6347;
+            }
+            input, select, button {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+            }
+            button {
+                background-color: #4CAF50;
+                color: white;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+            #output {
+                margin-top: 20px;
+                font-size: 20px;
+                color: #9b9e9b;
+            }
+        </style>
